@@ -25,7 +25,7 @@ public class UserController {
 
     @GetMapping("/users/{identifier}")
     public User getUserByLogin(@PathVariable String identifier) {
-        return userDao.findByIdentifier(identifier);
+        return userDao.findAllByIdentifier(identifier);
     }
 
     @PostMapping("/user")
