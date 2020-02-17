@@ -2,11 +2,13 @@ package com.ganski.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -29,6 +31,7 @@ public class User {
     private String identifier;
 
     @Column(name = "Password", nullable = false)
+    @Length(min = 6)
     private String password;
 
     @Column(name = "Birthday", nullable = false)
