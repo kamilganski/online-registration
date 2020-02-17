@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,8 +22,8 @@ public class Doctor {
     @Column(name = "Medical_Title")
     private String medicalTitle;
 
-    @Column(name = "Specialization")
-    private String specialization;
+    @OneToMany(mappedBy = "doctor")
+    private List<Specialization> specializations;
 
     @OneToOne
     @JoinColumn(name = "User_Id")
