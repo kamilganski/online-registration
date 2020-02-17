@@ -4,7 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 @Entity
 @Getter
@@ -28,4 +31,12 @@ public class Doctor {
     @OneToOne
     @JoinColumn(name = "User_Id")
     private User user;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "DoctorsOffices",
+            joinColumns = {@JoinColumn(name = "Doctor_Id")},
+            inverseJoinColumns = {@JoinColumn(name = "Office_Id")}
+    )
+    private List<Office> offices;
 }

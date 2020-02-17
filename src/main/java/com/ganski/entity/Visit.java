@@ -17,11 +17,8 @@ public class Visit {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "Date")
-    private Date date;
-
-    @Column(name = "Time")
-    private Time time;
+    @Column(name = "Date_Time")
+    private Date dateTime;
 
     @Column(name = "Number")
     private int number;

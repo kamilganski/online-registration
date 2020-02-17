@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -17,4 +18,7 @@ public class Office {
 
     @Column(name = "Name")
     private String name;
+
+    @ManyToMany(mappedBy = "offices")
+    private List<Doctor> doctors;
 }

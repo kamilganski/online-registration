@@ -40,9 +40,6 @@ public class DoctorController {
         if (!doctor.getMedicalTitle().isEmpty()) {
             doctorToUpdate.setMedicalTitle(doctor.getMedicalTitle());
         }
-        if (!doctor.getSpecialization().isEmpty()) {
-            doctorToUpdate.setSpecialization(doctor.getSpecialization());
-        }
 
         return doctorDao.save(doctorToUpdate);
     }
