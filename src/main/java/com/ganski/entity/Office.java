@@ -16,7 +16,7 @@ public class Office {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "Name", nullable = false)
+    @Column(name = "Name", nullable = false, length = 100)
     private String name;
 
     @ManyToMany(mappedBy = "offices")

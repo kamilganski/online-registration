@@ -16,7 +16,7 @@ public class Doctor {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "Medical_Number", nullable = false, unique = true)
+    @Column(name = "Medical_Number", nullable = false, unique = true, length = 6)
     private String medicalNumber;
 
     @Column(name = "Medical_Title")

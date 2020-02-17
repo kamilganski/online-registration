@@ -19,13 +19,13 @@ public class User {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "Name", nullable = false)
+    @Column(name = "Name", nullable = false, length = 45)
     private String name;
 
-    @Column(name = "Surname", nullable = false)
+    @Column(name = "Surname", nullable = false, length = 100)
     private String surname;
 
-    @Column(name = "Identifier", nullable = false, unique = true)
+    @Column(name = "Identifier", nullable = false, unique = true, length = 6)
     private String identifier;
 
     @Column(name = "Password", nullable = false)
