@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 @Entity
 @Getter
@@ -19,7 +16,7 @@ public class Doctor {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "Medical_Number")
+    @Column(name = "Medical_Number", nullable = false, unique = true)
     private String medicalNumber;
 
     @Column(name = "Medical_Title")

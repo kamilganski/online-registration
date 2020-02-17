@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.util.Date;
 
 @Entity
@@ -17,21 +16,21 @@ public class Visit {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "Date_Time")
+    @Column(name = "Date_Time", nullable = false)
     private Date dateTime;
 
-    @Column(name = "Number")
+    @Column(name = "Number", nullable = false)
     private int number;
 
     @OneToOne
-    @JoinColumn(name = "Doctor_Id")
+    @JoinColumn(name = "Doctor_Id", nullable = false)
     private Doctor doctor;
 
     @OneToOne
-    @JoinColumn(name = "User_Id")
+    @JoinColumn(name = "User_Id", nullable = false)
     private User user;
 
     @OneToOne
-    @JoinColumn(name = "Office_Id")
+    @JoinColumn(name = "Office_Id", nullable = false)
     private Office office;
 }

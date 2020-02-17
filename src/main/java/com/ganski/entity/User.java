@@ -19,27 +19,27 @@ public class User {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "Name")
+    @Column(name = "Name", nullable = false)
     private String name;
 
-    @Column(name = "Surname")
+    @Column(name = "Surname", nullable = false)
     private String surname;
 
-    @Column(name = "Identifier")
+    @Column(name = "Identifier", nullable = false, unique = true)
     private String identifier;
 
-    @Column(name = "Password")
+    @Column(name = "Password", nullable = false)
     private String password;
 
-    @Column(name = "Birthday")
+    @Column(name = "Birthday", nullable = false)
     private Date birthday;
 
-    @Column(name = "Email")
+    @Column(name = "Email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "Phone")
+    @Column(name = "Phone", nullable = false, unique = true)
     private String phone;
 
-    @Column(name = "Access_Level")
+    @Column(name = "Access_Level", nullable = false)
     private int accessLevel;
 }
