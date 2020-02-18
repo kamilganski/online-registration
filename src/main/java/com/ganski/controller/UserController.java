@@ -3,37 +3,38 @@ package com.ganski.controller;
 import com.ganski.dao.UserDao;
 import com.ganski.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class UserController {
 
     @Autowired
     private UserDao userDao;
 
-    @GetMapping("/users")
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
     public List<User> getAllUsers() {
         return userDao.findAll();
     }
 
-    @GetMapping("/users/{id}")
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public User getUserById(@PathVariable int id) {
         return userDao.findById(id).get();
     }
 
-    @GetMapping("/users/{identifier}")
+    @RequestMapping(value = "/users/{identifier}", method = RequestMethod.GET)
     public User getUserByLogin(@PathVariable String identifier) {
         return userDao.findAllByIdentifier(identifier);
     }
 
-    @PostMapping("/user")
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
     public User create(@RequestBody User user) {
         return userDao.save(user);
     }
 
-    @PutMapping("/user/{id}")
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
     public User update(@PathVariable int id, @RequestBody User user) {
         User userToUpdate = getUserById(id);
 
@@ -53,7 +54,7 @@ public class UserController {
         return userDao.save(userToUpdate);
     }
 
-    @DeleteMapping("/user/{id}")
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
     public boolean delete(@PathVariable int id) {
         userDao.deleteById(id);
         return true;

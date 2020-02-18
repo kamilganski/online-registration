@@ -13,27 +13,27 @@ public class DoctorController {
     @Autowired
     private DoctorDao doctorDao;
 
-    @GetMapping("/doctors")
+    @RequestMapping(value = "/doctors", method = RequestMethod.GET)
     public List<Doctor> getAllDoctors() {
         return doctorDao.findAll();
     }
 
-    @GetMapping("/doctors/{id}")
+    @RequestMapping(value = "/doctors/{id}", method = RequestMethod.GET)
     public Doctor getDoctorById(@PathVariable int id) {
         return doctorDao.findById(id).get();
     }
 
-    @GetMapping("/doctors/medical_number")
+    @RequestMapping(value = "/doctors/{medicalNumber}", method = RequestMethod.GET)
     public Doctor getDoctorByMedicalNumber(@PathVariable String medicalNumber) {
         return doctorDao.findByMedicalNumber(medicalNumber);
     }
 
-    @PostMapping("/doctor")
+    @RequestMapping(value = "/doctor", method = RequestMethod.POST)
     public Doctor create(@RequestBody Doctor doctor) {
         return doctorDao.save(doctor);
     }
 
-    @PutMapping("/doctor/{id}")
+    @RequestMapping(value = "/doctor/{id}", method = RequestMethod.PUT)
     public Doctor update(@PathVariable int id, @RequestBody Doctor doctor) {
         Doctor doctorToUpdate = getDoctorById(id);
 
@@ -44,7 +44,7 @@ public class DoctorController {
         return doctorDao.save(doctorToUpdate);
     }
 
-    @DeleteMapping("/doctor/{id}")
+    @RequestMapping(value = "/doctor/{id}", method = RequestMethod.DELETE)
     public boolean delete(@PathVariable int id) {
         doctorDao.deleteById(id);
         return true;
